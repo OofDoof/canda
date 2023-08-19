@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Page of Canada</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:800,500">
+  <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/767907810041790495/1135592092220018718/image.png">
+  <style>
+    body {
+        font-family: "Raleway", serif;
+        font-weight: 500;
+    }
+    /* CSS code for slideshow carousel */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* CSS code for navigation bar */
+    nav {
+      background: #ffffff;
+      height: 50px;
+      text-align: center;
+      opacity: 0.7;
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    nav ul li {
+      display: inline-block;
+    }
+    
+    nav ul li a {
+      display: block;
+      color: #000000;
+      text-decoration: none;
+      padding: 15px 20px;
+      cursor: pointer;
+    }
+    
+    /* CSS code for sections */
+    section {
+            background-color: #e8e8e8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        section:hover {
+            background-color: #bdbdbd;
+        }
+
+    /* Slider Dot Indicators */
+    .slider-controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .slider-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #bbb;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    
+    .slider-dot.active {
+      background: #333;
+    }
+
+    /* Slider Arrow Buttons */
+    .slider-arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .slider-arrow-btn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .slider-prev-btn {
+      left: 10px;
+    }
+    
+    .slider-next-btn {
+      right: 10px;
+    }
+    .bottom-left {
+    font-family: "Raleway", serif;
+    font-weight: 500;
+    position: absolute;
+    bottom: 70px;
+    left: 45px;
+    color: #fff;
+    font-size: 2em;
+    }
+    .slightly-bottom-left {
+    font-family: "Raleway", serif;
+    font-weight: 800;
+    position: absolute;
+    bottom: 45px;
+    left: 45px;
+    color: #fff;
+    font-size: 3em;
+    letter-spacing: 0.3em;
+    } 
+
+    .centre {
+    font-family: "Raleway", serif;
+    font-weight: 500;
+    position: absolute;
+    color: #fff;
+    font-size: 2em;
+    }
+
+    .button-container {
+    display: flex;
+  }
+
+  .button {
+    flex: 1;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-right: 10px;
+    width: 365px; 
+    height: 365px; 
+  }
+
+  .button:last-child {
+    margin-right: 0;
+  }
+
+  .button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire button */
+    transition: transform 0.3s ease;
+  }
+
+  .button:hover img {
+    transform: scale(1.1);
+  }
+
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+    
+    .tooltip .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+   
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+
+  .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+}
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .contact-info {
+    margin-top: 2em;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+
+  .icon {
+    font-size: 1.5em;
+    margin-right: 1em;
+    color: #333;
+  }
+
+  .email {
+    color: #007bff;
+  }
+
+  .phone {
+    color: #28a745;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // JavaScript code for slideshow carousel
+    $(document).ready(function() {
+      var slides = $('.slide');
+      var slideCount = slides.length;
+      var slideIndex = 0;
+      var slideDuration = 5000;
+      var timer;
+
+      function showSlide(index) {
+        slides.removeClass('active');
+        slides.eq(index).addClass('active');
+        updateActiveDot(index);
+      }
+
+      function updateActiveDot(index) {
+        $('.slider-dot').removeClass('active');
+        $('.slider-dot[data-slide-index="' + index + '"]').addClass('active');
+      }
+
+      function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= slideCount) {
+          slideIndex = 0;
+        }
+        showSlide(slideIndex);
+      }
+
+      function prevSlide() {
+        slideIndex--;
+        if (slideIndex < 0) {
+          slideIndex = slideCount - 1;
+        }
+        showSlide(slideIndex);
+      }
+
+      $('.slider-dot').click(function() {
+        var index = $(this).data('slide-index');
+        showSlide(index);
+      });
+
+      $('.slider-prev-btn').click(prevSlide);
+      $('.slider-next-btn').click(nextSlide);
+
+      showSlide(slideIndex);
+
+      function startTimer() {
+        timer = setInterval(nextSlide, slideDuration);
+      }
+
+      function stopTimer() {
+        clearInterval(timer);
+      }
+
+      $('.slideshow-container').hover(
+        function() {
+          stopTimer();
+        },
+        function() {
+          startTimer();
+        }
+      );
+
+      startTimer();
+    });
+
+    // JavaScript code for smooth scrolling
+    $(document).ready(function() {
+      $('nav ul li a').click(function(e) {
+        e.preventDefault();
+        var target = $(this).attr('href');
+        $('html, body').animate({
+          scrollTop: $(target).offset().top
+        }, 800);
+      });
+    });
+    
+  </script>
+</head>
+<body>
+  <nav style="font-family: Raleway, serif; font-weight: 500;">
+    <ul>
+      <li><a href="#Cuisine">Cuisine</a></li>
+      <li><a href="#tourist-spots">Tourist Spots</a></li>
+      <li><a href="#culture">Culture</a></li>
+      <li><a href="#history">History</a></li>
+      <li><a href="#support">Support</a></li>
+    </ul>
+  </nav>
+
+  <div class="slideshow-container">
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1617803672592-177dbdb3abfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Image 1">
+      <div class="bottom-left">Unlock the Wonders of Canada: Your Adventure Begins Here!</div>
+      <div class="slightly-bottom-left"><h1>CANADA</h1></div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Image 2">
+      <div class="bottom-left">Unlock the Wonders of Canada: Your Adventure Begins Here!</div>
+      <div class="slightly-bottom-left"><h1>CANADA</h1></div>
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1610048899906-d8f64bc45464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Image 3">
+      <div class="bottom-left">Unlock the Wonders of Canada: Your Adventure Begins Here!</div>
+      <div class="slightly-bottom-left"><h1>CANADA</h1></div>
+    </div>
+
+    <div class="slider-prev-btn slider-arrow-btn">&#8249;</div>
+    <div class="slider-next-btn slider-arrow-btn">&#8250;</div>
+  </div>
+
+  <div class="slider-controls">
+    <span class="slider-dot active" data-slide-index="0"></span>
+    <span class="slider-dot" data-slide-index="1"></span>
+    <span class="slider-dot" data-slide-index="2"></span>
+  </div>
+  
+    <section id="Cuisine">
+    <h2>Cuisine</h2>
+    <div class="button-container">
+        <div class="button-container">
+            <div class="tooltip">
+              <a href="../canda/Food/Food.html" class="button" target="_blank">
+                <img src="https://www.allrecipes.com/thmb/vP9rImTUWNKG-A6oYRel60EZkTk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4675434-tourtiere-french-canadian-meat-pie-Chef-John-1x1-1-c21cb4e48cdb4e919474f253c8137a2d.jpg" alt="Food">
+              </a>
+              <span class="tooltip-text">Food</span>
+            </div>
+            <div class="tooltip">
+              <a href="../canda/Food/Beverage.html" class="button" target="_blank">
+                <img src="https://www.acouplecooks.com/wp-content/uploads/2021/05/Bloody-Caesar-Cocktail-003s.jpg" alt="Beverages">
+              </a>
+              <span class="tooltip-text">Beverages</span>
+            </div>
+            <div class="tooltip">
+              <a href="../canda/Food/Dessert.html" class="button" target="_blank">
+                <img src="https://www.rockrecipes.com/wp-content/uploads/2012/11/Newfoundland-Snowballs-stacked-on-a-red-plate-480x480.jpg" alt="Dessert">
+              </a>
+              <span class="tooltip-text">Dessert</span>
+            </div>
+          </div>
+  </section>
+  
+  <section id="tourist-spots">
+    <h2>Tourist Spots</h2>
+    <div class="button-container">
+      <div class="button-container">
+          <div class="tooltip">
+            <a href="../canda/Places to Go/Tourist spot.html" class="button" target="_blank">
+              <img src="../canda/Places to Go/cn tower.jpg" alt="CN Tower" width="365px" height="365px">
+            </a>
+            <span class="tooltip-text">Places to Go</span>
+          </div>
+          <div class="tooltip">
+            <a href="../canda/Places to Go/Tourist spot.html" class="button" target="_blank">
+              <img src="../canda/Places to Go/snow 2.jpg" alt="Snow" width="365px" height="365px">
+            </a>
+            <span class="tooltip-text">Places to Go</span>
+          </div>
+          <div class="tooltip">
+            <a href="../canda/Places to Go/Tourist spot.html" class="button" target="_blank">
+              <img src="../canda/Places to Go/tree 2.jpg" width="365px" height="365px" alt="Tree">
+            </a>
+            <span class="tooltip-text">Places to Go</span>
+          </div>
+        </div>
+  </section>
+  
+  <section id="History">
+    <h2>History</h2>
+    <div class="button-container">
+      <div class="button-container">
+          <div class="tooltip">
+            <a href="History.html" class="button" target="_blank">
+              <img src="https://www.historymuseum.ca/cmc/exhibitions/archeo/hnpc/images/npvol01a.jpg" alt="History">
+            </a>
+            <span class="tooltip-text">History</span>
+          </div>
+          <div class="tooltip">
+            <a href="History.html" class="button" target="_blank">
+              <img src="https://www.historymuseum.ca/cmc/exhibitions/archeo/hnpc/images/npvol14a.jpg" alt="History">
+            </a>
+            <span class="tooltip-text">History</span>
+          </div>
+          <div class="tooltip">
+            <a href="History.html" class="button" target="_blank">
+              <img src="https://www.canadianaffair.com/Images/bespoke/generic-landing-page/how-old-is-canada-really/genimage/canada-first-nations.jpg" alt="History">
+            </a>
+            <span class="tooltip-text">History</span>
+          </div>
+        </div>
+  </section>
+  
+  <section id="culture">
+    <h2>Culture</h2>
+ <div class="button-container">
+      <div class="button-container">
+          <div class="tooltip">
+            <a href="../canda/Culture/computer project culture.html" class="button" target="_blank">
+              <img src="https://iappadm.iapply.io/uploads/images/canadian-culture.jpg" alt="Culture">
+            </a>
+            <span class="tooltip-text">Culture</span>
+          </div>
+          <div class="tooltip">
+            <a href="../canda/Culture/computer project culture.html" class="button" target="_blank">
+              <img src="https://www.vec.ca/wp-content/uploads/2019/03/Canadian-culture.jpg" alt="Culture">
+            </a>
+            <span class="tooltip-text">Culture</span>
+          </div>
+          <div class="tooltip">
+            <a href="../canda/Culture/computer project culture.html" class="button" target="_blank">
+              <img src="https://www.ctvnews.ca/polopoly_fs/1.4489391.1561989863!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg" alt="Culture">
+            </a>
+            <span class="tooltip-text">Culture</span>
+          </div>
+        </div>
+  </section>
+  <section>
+    <h2>Support</h2>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions or need assistance, feel free to contact us through the following methods:</p>
+    <div class="contact-info">
+      <div class="contact-method">
+        <span class="icon">📧</span>
+        <a href="mailto:support@travelcanada.com" class="email">support@travelcanada.com</a>
+      </div>
+      <div class="contact-method">
+        <span class="icon">📞</span>
+        <span class="phone">1-800-123-4567</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+  </section>
+  <footer>
+    <div class="footer">
+    <p>&copy; 2023 Travel Canada. All rights reserved.</p>
+  </div>
+  </footer>
+</body>
+</html>
